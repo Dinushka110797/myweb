@@ -42,6 +42,47 @@
             padding: 0 20px;
         }
         
+        /* Profile Photo */
+        .profile-photo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            z-index: 100;
+            border: 2px solid var(--neon-green);
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px var(--neon-green);
+            transition: all 0.3s ease;
+            background: var(--darker-bg);
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px var(--neon-green);
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-blue), var(--neon-pink), var(--neon-green));
+            background-size: 400%;
+            z-index: -1;
+            border-radius: 50%;
+            animation: border-glow 3s linear infinite;
+        }
+        
         /* Matrix Background */
         #matrix-bg {
             position: fixed;
@@ -385,6 +426,14 @@
             .cyber-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .profile-photo {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 0 auto 20px;
+                display: block;
+            }
         }
         
         /* Animations */
@@ -414,6 +463,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Profile Photo -->
+    <div class="profile-photo">
+        <img src="photo/Me.jpg" alt="Dinushka Silva">
+    </div>
+    
     <!-- Matrix Background -->
     <canvas id="matrix-bg"></canvas>
     
@@ -431,13 +485,13 @@
                     <div class="terminal-btn close"></div>
                     <div class="terminal-btn min"></div>
                     <div class="terminal-btn max"></div>
-                    <div class="terminal-title">user@cyberportfolio:~</div>
+                    <div class="terminal-title">Sudo@Dinushka:~</div>
                 </div>
                 <div class="terminal-body">
                     <span class="terminal-prompt">$</span>
                     <span class="terminal-command" id="typing-text"></span>
                     <div class="terminal-result">
-                        > Welcome to my cyber domain. Initiating system scan...
+                        > Welcome to my  domain. Initiating system scan...
                     </div>
                 </div>
             </div>
@@ -580,7 +634,7 @@
         <!-- Footer -->
         <footer class="cyber-footer">
             <p>// SYSTEM STATUS: <span class="flicker">OPERATIONAL</span></p>
-            <p>© 2023 S.DINUSHKA L.W.SILVA | CYBER PORTFOLIO v2.0</p>
+            <p>© 2023 S.DINUSHKA L.W.SILVA </p>
         </footer>
     </div>
 
